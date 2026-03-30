@@ -118,15 +118,6 @@
     {
         "children": [],
         "delay": "0",
-        "description": "",
-        "enabled": true,
-        "id": "16J5VTF",
-        "include_path": "..\\teams_verify_bots",
-        "type": "Include"
-    },
-    {
-        "children": [],
-        "delay": "0",
         "description": "Send Request to delete Bots Meeting",
         "enabled": true,
         "file_name": [

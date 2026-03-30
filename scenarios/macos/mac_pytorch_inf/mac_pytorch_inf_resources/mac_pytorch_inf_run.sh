@@ -34,18 +34,32 @@ log "-- pytorch_inf run started"
 ARCH=$(uname -m)
 log "Detected architecture: $ARCH"
 
-log "-- Initialize micromamba shell"
-export MAMBA_ROOT_PREFIX=$BIN_DIR/micromamba
-cd $BIN_DIR/micromamba
-eval "$(./bin/micromamba shell hook -s posix)"
-check $?
+# Source profile to load brew + pyenv
+log "-- Loading environment"
+if [ -f ~/.zprofile ]; then
+    source ~/.zprofile
+else
+    log " ERROR - ~/.zprofile not found"
+    exit 1
+fi
+
+log "-- Setting Python version"
+pyenv global 3.12.10
+if [ $? -ne 0 ]; then
+    log " ERROR - Failed to set Python version 3.12.10. Run prep script first."
+    exit 1
+fi
+
+PYTHON_VERSION=$(python --version 2>&1 | awk '{print $2}')
+if [ "$PYTHON_VERSION" != "3.12.10" ]; then
+    log " ERROR - Python version is $PYTHON_VERSION, expected 3.12.10"
+    exit 1
+fi
+log "✓ Python version confirmed: $PYTHON_VERSION"
+log "Python path: $(which python)"
 
 log "-- CD to mac_pytorch_inf_resources"
 cd $BIN_DIR/mac_pytorch_inf_resources
-check $?
-
-log "-- Activate BUILD_2025_env environment"
-micromamba activate BUILD_2025_env
 check $?
 
 log "-- Performing inferencing with prompt: What is the meaning of life?"

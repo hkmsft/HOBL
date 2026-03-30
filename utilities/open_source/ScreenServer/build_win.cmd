@@ -1,6 +1,6 @@
 @echo off
-REM Copyright (c) Microsoft. All rights reserved.
-REM Licensed under the MIT license. See LICENSE file in the project root for full license information.
+:: Copyright (c) Microsoft. All rights reserved.
+:: Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 REM build ScreenServer for windows
 dotnet publish -f net8.0-windows -r win-x64 -c Release -o Output\ScreenServer_win-x64 /p:OS=WINDOWS

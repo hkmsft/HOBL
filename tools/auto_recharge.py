@@ -1,5 +1,7 @@
-# Check battery level and recharge when below specified threshold
+# Copyright (c) Microsoft. All rights reserved.
+# Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
+# Check battery level and recharge when below specified threshold
 
 from builtins import *
 from core.parameters import Params

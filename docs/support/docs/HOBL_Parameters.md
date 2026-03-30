@@ -28,7 +28,7 @@ dut_wifi_name:
 
 `study_type` - The type of the study you are performing.  For weekly HOBL runs we typically put "HOBL".  This is used to organize study results and reports.
 
-`tools` - List any tools that should be run with each **power** scenario, in a space-separated list.  Available tools are in the "tools" directory.  This is the typical set: "auto_recharge video_record display_brightness run_report".  More information on tools can be found in the "Tools" section of the [HOBL](./HOBL.md) document.
+`tools` - List any tools that should be run with each **power** scenario, in a space-separated list.  Available tools are in the "tools" directory.  This is the typical set: "auto_recharge video_record display_brightness run_report".  More information on tools can be found in the "Tools" section of the [HOBL Usage](./HOBL_Usage.md) document.
 
 `prep_tools` - List any tools that should be run with each **prep** scenario, in a space-separated list.  This is the typical set: "screen_record".
 

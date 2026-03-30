@@ -1,3 +1,6 @@
+# Copyright (c) Microsoft. All rights reserved.
+# Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
 # Produce a table of the running processes and the estimated energy they consume
 
 from builtins import *

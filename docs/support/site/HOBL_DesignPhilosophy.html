@@ -9,17 +9,15 @@
       
       
       
-        <link rel="prev" href="HOBL_Prep.html">
       
-      
-        <link rel="next" href="HOBL_Scenarios.html">
+        <link rel="next" href="HOBL_Parameters.html">
       
       <link rel="icon" href="assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.1.15">
     
     
       
-        <title>HOBL 25 Release Notes - Docs</title>
+        <title>Design Philosophy - Docs</title>
       
     
     
@@ -63,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#hobl-25-release-notes" class="md-skip">
+        <a href="#design-philosophy" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              HOBL 25 Release Notes
+              Design Philosophy
             
           </span>
         </div>
@@ -182,11 +180,121 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="HOBL.html" class="md-nav__link">
-        HOBL
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Design Philosophy
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="HOBL_DesignPhilosophy.html" class="md-nav__link md-nav__link--active">
+        Design Philosophy
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#key-principles" class="md-nav__link">
+    Key principles:
+  </a>
+  
+    <nav class="md-nav" aria-label="Key principles:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#representativeness" class="md-nav__link">
+    Representativeness
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usability" class="md-nav__link">
+    Usability
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extensibility" class="md-nav__link">
+    Extensibility
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scalability" class="md-nav__link">
+    Scalability
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capability" class="md-nav__link">
+    Capability
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controllability" class="md-nav__link">
+    Controllability
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-we-automate-and-why" class="md-nav__link">
+    How we automate and why:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-python" class="md-nav__link">
+    Why Python?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-git-for-updates" class="md-nav__link">
+    Why Git for updates?
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -227,121 +335,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          HOBL 25 Release Notes
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="HOBL_Release_Notes.html" class="md-nav__link md-nav__link--active">
-        HOBL 25 Release Notes
+    <li class="md-nav__item">
+      <a href="HOBL_ScenarioMaker.html" class="md-nav__link">
+        Scenario Maker
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#202550-release-10112025" class="md-nav__link">
-    2025.5.0 Release (10/11/2025)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#202540-release-1022025" class="md-nav__link">
-    2025.4.0 Release (10/2/2025)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#202530-release-9192025" class="md-nav__link">
-    2025.3.0 Release (9/19/2025)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#202520-release-6152025" class="md-nav__link">
-    2025.2.0 Release (6/15/2025)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#202510-release-5162025" class="md-nav__link">
-    2025.1.0 Release (5/16/2025)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#202501-release-4182025" class="md-nav__link">
-    2025.0.1 Release (4/18/2025)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#202500-release-452025" class="md-nav__link">
-    2025.0.0 Release (4/5/2025)
-  </a>
-  
-    <nav class="md-nav" aria-label="2025.0.0 Release (4/5/2025)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#important" class="md-nav__link">
-    IMPORTANT
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#power-impact" class="md-nav__link">
-    POWER IMPACT
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#new-features" class="md-nav__link">
-    NEW FEATURES
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -356,6 +354,21 @@
     <li class="md-nav__item">
       <a href="HOBL_Scenarios.html" class="md-nav__link">
         HOBL Scenarios
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HOBL_Setup.html" class="md-nav__link">
+        Setup
       </a>
     </li>
   
@@ -399,8 +412,8 @@
   
   
     <li class="md-nav__item">
-      <a href="HOBL_UI_Release_Notes.html" class="md-nav__link">
-        HOBL UI Release Notes
+      <a href="HOBL_Usage.html" class="md-nav__link">
+        Usage
       </a>
     </li>
   
@@ -433,78 +446,78 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#202550-release-10112025" class="md-nav__link">
-    2025.5.0 Release (10/11/2025)
+  <a href="#key-principles" class="md-nav__link">
+    Key principles:
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#202540-release-1022025" class="md-nav__link">
-    2025.4.0 Release (10/2/2025)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#202530-release-9192025" class="md-nav__link">
-    2025.3.0 Release (9/19/2025)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#202520-release-6152025" class="md-nav__link">
-    2025.2.0 Release (6/15/2025)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#202510-release-5162025" class="md-nav__link">
-    2025.1.0 Release (5/16/2025)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#202501-release-4182025" class="md-nav__link">
-    2025.0.1 Release (4/18/2025)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#202500-release-452025" class="md-nav__link">
-    2025.0.0 Release (4/5/2025)
-  </a>
-  
-    <nav class="md-nav" aria-label="2025.0.0 Release (4/5/2025)">
+    <nav class="md-nav" aria-label="Key principles:">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#important" class="md-nav__link">
-    IMPORTANT
+  <a href="#representativeness" class="md-nav__link">
+    Representativeness
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#power-impact" class="md-nav__link">
-    POWER IMPACT
+  <a href="#usability" class="md-nav__link">
+    Usability
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#new-features" class="md-nav__link">
-    NEW FEATURES
+  <a href="#extensibility" class="md-nav__link">
+    Extensibility
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scalability" class="md-nav__link">
+    Scalability
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capability" class="md-nav__link">
+    Capability
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controllability" class="md-nav__link">
+    Controllability
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-we-automate-and-why" class="md-nav__link">
+    How we automate and why:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-python" class="md-nav__link">
+    Why Python?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-git-for-updates" class="md-nav__link">
+    Why Git for updates?
+  </a>
   
 </li>
       
@@ -523,78 +536,102 @@
                   
 
 
-<h1 id="hobl-25-release-notes">HOBL 25 Release Notes</h1>
-<h2 id="202550-release-10112025">2025.5.0 Release (10/11/2025)</h2>
+<h1 id="design-philosophy">Design Philosophy</h1>
+<h2 id="key-principles">Key principles:</h2>
+<h3 id="representativeness">Representativeness</h3>
 <ul>
-<li>New host_setup.exe that addresses two problems:<ol>
-<li>Large transfer size - host_setup now does a shallow clone to reduce transfer time by 5x.</li>
-<li>Conflicting versions of python and/or libraries - host_setup now installs a python distribution embedded into the hobl directory itself, isolated from any system python installs.</li>
-</ol>
+<li>HOBL's main purpose is for computer system validation and tuning.  </li>
+<li>There are subtle but critical differences between synthetic benchmarks and how users really use devices.</li>
+<li>These differences can result in wrong tuning choices and missed bugs.</li>
+<li>In order to bring impact to real users, HOBL aims to interact with devices the way real users do.</li>
+<li>And craft test scenarios based on telemetry and user research.</li>
+<li>For example, in the "web" scenario, these aspects are based on telmetry and user research studies of the typical user:</li>
+<li>Which websites to visit.</li>
+<li>How many tabs to open.</li>
+<li>How much time to spend on each site.</li>
+<li>Scrolling behavior.</li>
+<li>New Tab Page visits.</li>
+<li>Typing rate.</li>
+<li>Browser caching behavior.</li>
+<li>And so on...</li>
+</ul>
+<h3 id="usability">Usability</h3>
+<ul>
+<li>Ease of setup/use is critical to support hundreds of users across many organizations.</li>
+<li>Stand-alone UI app or centralized lab website.</li>
+<li>Manage stations, create test plans, execute jobs, monitor status, analyze results, Remote to device, etc.</li>
+<li>Simple DUT remote access capability directly from UI.</li>
+<li>HOBL UI website can be accessed from corp/internet networks.</li>
+<li>Remote to DUT directly within HOBL UI.</li>
+<li>Self-contained Teams testing with Teams Bots (limited to certain orgs).</li>
+<li>Streaming video and recordings - RTSP or USB cams, screen casts from DUT.</li>
+<li>Interface DAQs, power strips, other equipment.</li>
+</ul>
+<h3 id="extensibility">Extensibility</h3>
+<ul>
+<li>Can control or be controlled by other automation.</li>
+<li>Plug-and-play tools:</li>
+<li>Add a tool by dropping it in the “tools” folder.</li>
+<li>Callback architecture allows actions at specific phases of test flow.</li>
+<li>Interface custom DAQs, thermal chambers, chargers, and other equipment.</li>
+<li>Scenario Maker app:</li>
+<li>Quickly and easily create tests by recording actions.</li>
+<li>Democratizes test creation, relieving bottlenecks.</li>
+</ul>
+<h3 id="scalability">Scalability</h3>
+<ul>
+<li>
+<p>Ability to run locally on a device:</p>
 </li>
-</ul>
-<h2 id="202540-release-1022025">2025.4.0 Release (10/2/2025)</h2>
-<ul>
-<li>idle_desktop has been increased to 20 minutes to better capture sporatic background activity and reduce run-to-run variation.</li>
-<li>Teams scenarios have been rewritten using image-based automation.  Since, this interactivity occurs only during setup and teardown, there is no power delta for the part of the call being measured.</li>
-</ul>
-<h2 id="202530-release-9192025">2025.3.0 Release (9/19/2025)</h2>
-<ul>
-<li>Since Microsoft is no longer supporting the purchase of movies in the Microsoft Store, the "halo2" scenario has been removed from all test plans and study reports.  Accordingly, the weighting for "netflix" has been doubled to compensate.</li>
-</ul>
-<h2 id="202520-release-6152025">2025.2.0 Release (6/15/2025)</h2>
-<ul>
-<li>web - Moved cursor position during scrolling to the left side of the screen, to match hobl 24.  May have minor power impact.</li>
-<li>Added mac_web, web scenario for Mac.</li>
-<li>Added Mac support to display_brightness, audio_volume, and screen_record tools.</li>
-</ul>
-<h2 id="202510-release-5162025">2025.1.0 Release (5/16/2025)</h2>
-<ul>
-<li>May update to Office that fixes the high power in Outlook Classic.</li>
-<li>Productivity_prep now sets reg key to keep Office in "mouse mode" even when a blade is detached, to resolve automation issues.</li>
-</ul>
-<h2 id="202501-release-4182025">2025.0.1 Release (4/18/2025)</h2>
-<ul>
-<li>Signed setup binaries.</li>
-<li>dut_scaling_override global parameter added for use in the case the DUT is not reporting its Windows Scaling factor properly.  The value is a fraction, like "2.0" to represent 200%.</li>
-<li>study_report and run_report scenarios now completely offline (don't try to communicate with DUT).</li>
-<li>host_setup_dev.exe updated with latest versions of tools.</li>
-<li>HOBL 24 scenarios and test plans are available in case you need to go back for some reason, without changing the repo.  They are designatied with "_24" in the name.</li>
-<li>Delay added to the Outlook scenario to accommodate slow devices.</li>
-<li>Larger capture added to web_prep to accommodate favorites bar.</li>
-</ul>
-<h2 id="202500-release-452025">2025.0.0 Release (4/5/2025)</h2>
-<h3 id="important">IMPORTANT</h3>
-<ul>
-<li>Additional python libraries need to be installed.  To upgrade to this release, you'll need to run the host_setup_dev.exe and select the "Python" item to install the new libraries.</li>
-<li>The HOBL UI also needs to be updated to at least version 0.81, so select that in host_setup_dev.exe as well.</li>
-<li>A new InputInject library is required on the DUT.  To get this run the setup\dut_setup.exe on the DUT.</li>
-</ul>
-<h3 id="power-impact">POWER IMPACT</h3>
-<ul>
-<li>The 2502 version of Outlook Classic has been found to have elevated power while typing, ~8W on tested platforms.  This currently results in ~90% increase of SOC power and ~30% increase to total power for the overall productivity scenario.  This is bugged, and we'll move to the fixed version of Office as soon as it's available.</li>
-<li>No other significant power impacts.</li>
-</ul>
-<h3 id="new-features">NEW FEATURES</h3>
-<ul>
-<li>HOBL 25 implements a whole new way to do UI automation, using image recognition instead of relying on accessibility tags.  This has the following benefits:<ul>
-<li>No need for training runs.  Elements are found in real-time, by taking a partial screen capture, filtering/scaling the image, and template-matching with image of desired UI element to find the appropriate click coordinates.</li>
-<li>Ability to automate MacOS, W365, and other operating systems that don't have available accessibility tags.</li>
-<li>No need for screen_check tool.  Since elements are found at runtime, checking is built-in.</li>
-<li>Hedge against WinAppDriver end of support.</li>
-<li>Greater ability to work elements not being found, resulting in less work blockage.</li>
-<li>Can automate apps that don't have tags, like Adobe products and games.</li>
-</ul>
+<li>
+<p>valuable for devs to reproduce issues.</p>
 </li>
-<li>Initially, the scenarios implemented this new mechanism are: abl_active, abl_standby, web, idle_apps, productivity, youtube, netflix, and halo2.  Other scenarios will be converted as need arises.</li>
-<li>Activity timing for these new scenarios has also been revamped.  Timing of each event is now based on a fixed reference point, specifically the beginning of the scenario.  This prevents variability from accumulated delays in network or processing of actions.</li>
-<li>Power consumption of the new implementations of web and productivity are actually a little bit lower than before with screen_check due to optimizations in the screen capture and input injection.</li>
-<li>The old WinAppDriver based mechanism still exists and the other scenarios still use that.</li>
-<li>The web archive has been refreshed with latest copies of the sits.  Minor changes include being logged in to Instagram and a different search in Amazon.  There seems to be a small increase in power with the new pages, but generally insignificant.</li>
-<li>Office was advanced to version 2502.  Power consumption is generally a little lower, except for Outlook, which jumps to ~8W while typing.  A high-priority bug has been filed on this.</li>
-<li>Parameter overrides no longer need the section specified.  For example, instead of "lvp:duration=300", you can write "duration=300".  The infrastructure will know to apply it to the scenario you're running.  But beware of self-referencing parameters in your profile.  For example "study_report:product=[product]" will cause an infinite loop and needs to be removed.  In this case, study_report now references the global:product directly.</li>
-<li>ScenarioMaker application to easily create code-free test scenarios with point-and-click operations.</li>
-<li>Remote - In the new HOBL UI, right-clicking on a profile will show "Remote" in the context menu, which allows you to efficiently remote into the DUT for manual operations.  Copy-paste are supported, as well as transferring files to a file share.  To do the latter set up global parameters in your profile for "remote_share_path", "remote_share_username", and "remote_share_password".  A Z: share will be mounted to the specified path during your remote session.  Since Remote is not a scenario (like Quick Assist was), you are able to remote to a DUT while a test is in progress, but there is a sizeable power impact from that so you will be prompted with a warning first.</li>
+<li>
+<p>Ability run on a centralized server controlling hundreds of devices:</p>
+</li>
+<li>
+<p>Maximizes electrical and physical capacity for DUTs.</p>
+</li>
+<li>External equipment not required.</li>
+<li>Allows full end-to-end automation, including re-imaging, rebooting, real-time monitoring, etc.</li>
 </ul>
+<h3 id="capability">Capability</h3>
+<ul>
+<li>Ability to test major platforms - Windows, Win365, MacOS, Android.</li>
+<li>Ability to interact with Games.</li>
+<li>Data analysis features.</li>
+</ul>
+<h3 id="controllability">Controllability</h3>
+<ul>
+<li>To measure nuances in power and performance:</li>
+<li>All variables need to be controlled tightly.</li>
+<li>
+<p>Tests need to do the exact same thing, with same timing, every time.  In HOBL all action timing is with reference to the beginning of the scenario, so that we don't get accumulation of error from various delays.</p>
+</li>
+<li>
+<p>Web Replay technology:</p>
+</li>
+<li>Recorded web sites eliminates variability of live web pages.</li>
+<li>Same content and timing, every time.</li>
+<li>Prevents getting bot-detected by web sites.</li>
+<li>Prevents need for creating accounts and logging into web sites.</li>
+</ul>
+<h2 id="how-we-automate-and-why">How we automate and why:</h2>
+<p>There are numerous ways to automate interacticivity with a computer system, with various pros and cons.  HOBL actually combines a number of them:</p>
+<p>For changing system settings and preparing the device, setting registry keys and other command-line operations is preferred for simplicity and reliability.  If that's not viable, then we'll use UI automation using Selenium-based Windows Application Driver (which leverages the accessibility tags for elements in Windows), for its versatility.</p>
+<p>For test scenarios that are actually measuring power or performance, thie big challenge is we need to make sure the automation mechanism itself doesn't consume noticable CPU utilization, and that it's representative of how a real user would interact with the device.  Windows Application Driver can consume a significant amount of CPU cycles, and direct application API calls or command-line execution aren't representative of how most users operate.  When bugs were found with these methods in the past, they would get deprioritized or rejected due to, "we don't expect users to do this".  As a result, we ensure that measured scenarios use keystrokes and mouse movement/clicks injected at the HID level, same as where a keyboard or mouse driver would interface.  The trick then, is to determine where to click the mouse.  For this we use an image-recognition based system using strategic screenshots.  On the device, we only capture an area of the screen where we expect the desired element to be, then, on the host, we search the capture for the precise location of the element, find it's relative coordinates, and send a mouse click command at those coordinates.  We've found that we've been able to automate scenarios quite well by capturing small enough regions infrequently enough that we don't see any noticeable impact to power consumption.  Scenario Maker is an inlcuded application that makes it easy to create test scenarios using this automation mechansim.</p>
+<p>To handle different themes and colors, we convert images to black-and-white outlines, via edge detection.  To handle different screen resolutions and scaling factors, we read those factors from the DUT and scale the template accordingly before matching.  We can also store multiple templates for matching, and can override matching and edge-detection thresholds as needed.  This gives us a lot of knobs creating a robust system.</p>
+<h2 id="why-python">Why Python?</h2>
+<ul>
+<li>No compiling.  This results in:</li>
+<li>Faster fixes and feature development</li>
+<li>Incorporating fixes without disturbing currently running test.  These is crucial for large deployments and long-running studies managed by a centralized host.</li>
+<li>Powerful, yet easy to read</li>
+<li>Novice users can apply emergency fixes and work-arounds.</li>
+<li>External teams can easily develop their own tools and scenarios.</li>
+</ul>
+<h2 id="why-git-for-updates">Why Git for updates?</h2>
+<p>Again, the key is to incorporate fixes and updates without disturbing current running tests.  A "git pull" will only update the python files needed.  Also, even if a python file was loaded for a current test, it can still be replaced by an update with disturbing the test.  Whereas a compiled executable test would need to be stopped for it to be updated.</p>
 
 
 

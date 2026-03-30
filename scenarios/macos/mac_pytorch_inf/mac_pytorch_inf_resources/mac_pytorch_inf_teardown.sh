@@ -21,16 +21,20 @@ fi
 echo "-- mac_pytorch_inf_teardown.sh started $(date)" > "$LOG_FILE"
 log "-- pytorch_inf teardown started"
 
-log "-- Initialize shell"
-export MAMBA_ROOT_PREFIX=$BIN_DIR/micromamba # optional, defaults to ~/micromamba
-cd $BIN_DIR/micromamba
-eval "$(./bin/micromamba shell hook -s posix)"
+# Source profile to load brew + pyenv
+log "-- Loading environment"
+if [ -f ~/.zprofile ]; then
+    source ~/.zprofile
+else
+    log " ERROR - ~/.zprofile not found"
+    exit 1
+fi
+
+log "-- Setting Python version"
+pyenv global 3.12.10
 
 log "-- CD to resources"
 cd $BIN_DIR/mac_pytorch_inf_resources
-
-log "-- Activate environment"
-micromamba activate BUILD_2025_env
 
 log "-- Cleanup GPU caching"
 python inference.py --cleanup-gpu

@@ -1,3 +1,6 @@
+# Copyright (c) Microsoft. All rights reserved.
+# Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
 # param(
 #     [string]$logFile = "c:\hobl_data\pytorch_inf_prep.log"
 # )
@@ -35,19 +38,33 @@ function checkCmd {
 # Set-Content -Path $logFile -encoding utf8 "-- pytorch_inf prep started"
 "-- pytorch_inf teardown started" | log
 
-"-- Initialize shell" | log
-$Env:MAMBA_ROOT_PREFIX="$scriptDrive\hobl_bin\micromamba"
-cd "$scriptDrive\hobl_bin\micromamba"
-checkCmd($?)
-.\micromamba.exe shell hook -s powershell | Out-String | Invoke-Expression
-checkCmd($?)
+# Determine processor architecture for pyenv Python version
+$osInfo = Get-CimInstance Win32_OperatingSystem
+$arch = $osInfo.OSArchitecture
+$processorArch = $env:PROCESSOR_ARCHITECTURE
+
+if ($arch -eq "64-bit" -and $processorArch -eq "AMD64") {
+    $pythonVersion = "3.12.10"
+} elseif ($arch -match "ARM" -or $processorArch -match "ARM") {
+    $pythonVersion = "3.12.10-arm"
+} else {
+    " ERROR - Unsupported architecture: $arch (Processor: $processorArch)" | log
+    Exit 1
+}
+
+# Ensure pyenv shims are in PATH for this session
+$pyenvShims = "$env:USERPROFILE\.pyenv\pyenv-win\shims"
+$pyenvBin = "$env:USERPROFILE\.pyenv\pyenv-win\bin"
+if ($env:PATH -notlike "*$pyenvShims*") {
+    $env:PATH = "$pyenvShims;$pyenvBin;$env:PATH"
+}
+
+"Setting Python global version to $pythonVersion..." | log
+pyenv global $pythonVersion
+check($lastexitcode)
 
 "-- CD to resources" | log
-cd "$scriptDrive\hobl_bin\pytorch_inf_resources"
-checkCmd($?)
-
-"-- Activate environment" | log
-micromamba activate BUILD_2025_env
+Set-Location "$scriptDrive\hobl_bin\pytorch_inf_resources"
 checkCmd($?)
 
 "-- Cleanup GPU caching" | log

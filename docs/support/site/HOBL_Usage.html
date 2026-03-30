@@ -1,0 +1,799 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="HOBL_UI.html">
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.1.15">
+    
+    
+      
+        <title>Usage - Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.26e3688c.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#usage" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="Docs" class="md-header__button md-logo" aria-label="Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Usage
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Docs" class="md-nav__button md-logo" aria-label="Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HOBL_DesignPhilosophy.html" class="md-nav__link">
+        Design Philosophy
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HOBL_Parameters.html" class="md-nav__link">
+        HOBL Parameters
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HOBL_Prep.html" class="md-nav__link">
+        HOBL Prep
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HOBL_ScenarioMaker.html" class="md-nav__link">
+        Scenario Maker
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HOBL_Scenarios.html" class="md-nav__link">
+        HOBL Scenarios
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HOBL_Setup.html" class="md-nav__link">
+        Setup
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HOBL_Tools.html" class="md-nav__link">
+        HOBL Tools
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HOBL_UI.html" class="md-nav__link">
+        HOBL UI
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Usage
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="HOBL_Usage.html" class="md-nav__link md-nav__link--active">
+        Usage
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#top-level" class="md-nav__link">
+    Top level
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenarios" class="md-nav__link">
+    Scenarios
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    Tools
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dut-folders" class="md-nav__link">
+    DUT folders
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#result-directory" class="md-nav__link">
+    Result directory
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reporting" class="md-nav__link">
+    Reporting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log-file" class="md-nav__link">
+    Log file
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#callbacks" class="md-nav__link">
+    Callbacks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#config-check" class="md-nav__link">
+    Config Check
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#graphic-user-interface" class="md-nav__link">
+    Graphic User Interface
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-plans" class="md-nav__link">
+    Test Plans
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#simpleremote" class="md-nav__link">
+    SimpleRemote
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#windows-application-driver" class="md-nav__link">
+    Windows Application Driver
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenario-maker" class="md-nav__link">
+    Scenario Maker
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#top-level" class="md-nav__link">
+    Top level
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenarios" class="md-nav__link">
+    Scenarios
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    Tools
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dut-folders" class="md-nav__link">
+    DUT folders
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#result-directory" class="md-nav__link">
+    Result directory
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reporting" class="md-nav__link">
+    Reporting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log-file" class="md-nav__link">
+    Log file
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#callbacks" class="md-nav__link">
+    Callbacks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#config-check" class="md-nav__link">
+    Config Check
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#graphic-user-interface" class="md-nav__link">
+    Graphic User Interface
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-plans" class="md-nav__link">
+    Test Plans
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#simpleremote" class="md-nav__link">
+    SimpleRemote
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#windows-application-driver" class="md-nav__link">
+    Windows Application Driver
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenario-maker" class="md-nav__link">
+    Scenario Maker
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="usage">Usage</h1>
+<p>The test scenarios that make up the "HOBL" suite have been pre-assembled in a "test plan", <code>testplans\hobl.ps1</code>.
+* Testplans can be run from the command line, if integrating with higher level automation, but running from the HOBL UI has a lot of benefits and is preferred.
+* Controlling which scenarios to run, such if donig re-runs of select scenarios, can be done by either commenting out lines in the test plan, or utilizing the checkboxes in the GUI interface.</p>
+<h2 id="top-level">Top level</h2>
+<ul>
+<li>The HOBL framework is a general purpose test framework based on the Python UnitTest framework.  Windows Application Driver and image recognition technologies are used to remotely control the interaction of applications and web sites.</li>
+<li>hobl.cmd is the top-level file that can be executed from the command line.  Give arguments for the profile and the scenario to be run.  For example, to run the web scenario:</li>
+</ul>
+<pre><code>    hobl.cmd -p my_profile.ini -s web
+</code></pre>
+<ul>
+<li>However, this command is very limited and not supported for external use.  The HOBL UI is a much better way to run tests and plans.  For interfacing with external systems, ask HOBLsupport about the available REST API.</li>
+</ul>
+<h2 id="scenarios">Scenarios</h2>
+<ul>
+<li>The hobl/scenarios/[os] dir contains the scenarios that can be run.  Some scenarios are actual test cases, some do supporting tasks (such as turning the charger on/off), while others are jsut to prepare the device (such as installing office).  The scenarios that make up the "hobl" test plan are the best maintined.  Other scenarios may or may not still be maintained.</li>
+<li>A scenario, or test case, contains the code to interact with the DUT (Device Under Test) according to a specific user scenario.</li>
+<li>Most scenarios require some initial preparation.  A special "prep" scenario can determine what additional preparation scenarios are need for a specified test scenario, and will automatically exeucute them.  Note that the HOBL UI will do this automatically for you.  But for command-line execution, to prepare for the "web" scenario, for example, the "prep" scenario can be run like this:</li>
+</ul>
+<pre><code>    hobl.cmd -p my_profile.ini -s prep prep:scenarios_to_prep=web
+</code></pre>
+<ul>
+<li>Descriptions of available scenarios can be seen here: <a href="HOBL_Scenarios.html">Scenarios</a></li>
+</ul>
+<h2 id="parameters">Parameters</h2>
+<p>There are 3 levels of parameters:
+* Default values of scenario-specific parameters are set in each scenario itself.  Generally, the default values are set to what should be used for a proper HOBL run.  The top-level hobl.py sets the "global" default parameters, which are those common to all scenarios.
+* A Device Profile can be used to override the defaults.  The can be created from the "Device Profiles" menu in the HOBL UI.  It ultimately get saved as a .ini file in c:\profiles, so command-line operations can point to it there.  The file has sections for "global", as well as any relevant scenarios.  A "default.ini" is provided as a starting point, which contains the parameters that would typically need to be overwritten, such as the various credentials needed.  Users should copy this to create their own.  It is expected that a lab would have a separate Device Profile file for each DUT, as each DUT would need its own accounts.
+* Finally, parameters can be overridden on the command line.  This overrides both the defaults and the Device Profile file.  The argument format is:
+  <code>&lt;scenario&gt;:&lt;key&gt;=&lt;value&gt;</code>
+* Descriptions of available parameters can be seen here: <a href="HOBL_Parameters.html">Parameters</a></p>
+<h2 id="tools">Tools</h2>
+<ul>
+<li>Two of the global parameters is "tools" and "prep_tools".  These are distinct because there is generally a sperate set of tools we run for measured test scenarios (such as ETL tracing) vs prep scenarios (such as screen_record).</li>
+<li>In your profile, you can specify a space-separated default list of tools from the tools folder to run for every scenario of each type.</li>
+<li>Tools can also be easily overriden per scenario when creating a new job in the HOBL UI, by clicking in the "tools" column and choosing from the drop-down.  The parameter will be populated appropriately behind the scenes.</li>
+<li>A tool is a python file that contains specific predefined methods called at specific phases of the test flow.  This can be used to control things like settings, tracing, measurements, or external equipment by sending specific commands at the appropriate time.</li>
+<li>Create a new tool by copy/rename/editing an existing one that is most similar.</li>
+<li>Tools can be added to an existing list on the command line, using a "+" symbol as the first character.  i.e.<ul>
+<li>hobl.cmd -p my_params.ini -s lvp global:tools="+video_record"</li>
+<li>This will add "video_record" to the list of tools specified in my_params.ini</li>
+</ul>
+</li>
+<li>Common tools include:<ul>
+<li>auto_recharge - Turns on the charger when battery level reaches a specified low threshold, and turns off at the specified upper threshold.</li>
+<li>auto_charge - Turns off the charger before each scenario and turns on after.</li>
+<li>etl_trace - Records ETL traces using WPR.  Specify .wprp providers on the "providers" parameter.</li>
+<li>power_light - Lightweight tracing that doesn't significanlty impact power consumption.  Traces and summarizes running process and the estimated power they consume.  Critical for determining variability in runs.</li>
+<li>power_heavy - Exhaustive collection and reporting of power-related activities in the system, but does have a significant impact on power itself.</li>
+<li>powercfg - Runs the Windows powercfg.exe command for such things as a Sleep Study Report.</li>
+<li>run_report - Rollup a report of each run.  This is needed for the study_report scenario to rollup a report of the whole study.</li>
+<li>screenshot - Capture screenshots of the DUT at a specified interval.</li>
+<li>video_record - Record video of a scenario from a camera connected to the host.</li>
+<li>screen_record - Record video of a scenario from capturing the display buffer on the DUT itself.  This consumes a lot of power and should only be done on scenarios where Power consumption is not being studied.  However, it gives very clear video for debug purposes without requiring an external camera.</li>
+</ul>
+</li>
+<li>Descriptions of available tools can be seen here: <a href="HOBL_Parameters.html">Parameters</a></li>
+</ul>
+<h2 id="dut-folders">DUT folders</h2>
+<ul>
+<li>There are 2 folders created on the DUT:  <ul>
+<li>On Windows:  c:\hobl_bin and c:\hobl_data</li>
+<li>On macOS:  /users/Shared/hobl_bin and /users/Shared/hobl_data</li>
+</ul>
+</li>
+<li>hobl_bin is where any scripts, excecutables, or resources that are needed for execution are copied, ususally by a prep scenario.</li>
+<li>hobl_data is cleared at the beginning of each scenario.  Any data produced by the scenario and tools while running on the DUT gets put there.  At the end of the scenario everything in that folder is copied back to the host computer's result directory.  Examples, include ETL traces, log files, config_check output, etc.</li>
+</ul>
+<h2 id="result-directory">Result directory</h2>
+<ul>
+<li>The global parameter "result_dir" represents the base directory on the host where results will be stored.  Default is "c:\hobl_results".  Relative paths must not be used.</li>
+<li>There is also a "study_type" parameter that will automatically get appended to the result_dir.  It's optional, but is recommended for organizing test results for different studies.  This can be set in the profile, but there is also a convenient field at the top of the New Job page for overriding it.</li>
+<li>For more advanced study organization, the New Job page allows use to specify Study Variables.  These are ideal for managing the variables in experiments.  The UI will automatically generate runs for all combinations of specified study variables and their values.  The variable names and values will be appeneded to the result directory for data organization, and will also be recorded in the result metadata to facilitate database filtering and querying.</li>
+<li>The global parameter "run_type" allows for an additional subdirectory to be specified.  Default is "Prep" for all prep scenarios and "Power" for measured test scenarios.  This allows reporting tools to knwo which secnarios to try and roll up.</li>
+<li>Finally, the leaf directory automatically created is of the form <code>&lt;scenario&gt;_&lt;iter&gt;</code>.  Where <code>&lt;iter&gt;</code> is a 3-digit number that auto increments for each run.</li>
+<li>So the final result directory is <code>&lt;result_dir&gt;\&lt;study_type&gt;\&lt;studyvar1-val1&gt;\&lt;studyvar2-val1&gt;&lt;run_type&gt;\&lt;scenario&gt;_&lt;iter&gt;</code></li>
+</ul>
+<h2 id="reporting">Reporting</h2>
+<ul>
+<li>Run Report - A report rolled up for each scenario run. To run, add "run_report" to the list of tools on your global:tools parameter.  This does two things:<ol>
+<li>The tool runs an optional script specified in the script_path parameter to roll up any data collected by external equipment, such as DAQs, to a *_power_data.csv file, that just containes rows of <code>&lt;key&gt;,&lt;val&gt;</code> for any metrics you would like rolled up.  Since such a script is particular to individual lab environments, it is not provided, but we can help with creation of yours.</li>
+<li>A rollup_metrics script is run that rolls up all available .csv files, such as from other tools that may have been run, as well as the pre and post config_check runs, into a single *_metrics.csv file.  This summary file will be used by the study_report rollup.  The rollup_metrics.py script is in the "utilities" folder and can also be run manually and recursively on a full set of runs in one shot.</li>
+</ol>
+</li>
+<li>Study Report - Rolls up the Run Reports for an entire study.<ul>
+<li>Study Report is run as a scenario when you want to rollup existing results.<ul>
+<li>hobl.cmd -p my_params.ini -s study_report</li>
+</ul>
+</li>
+<li>There are a number of optional parameters to direct the output:<ol>
+<li>result_path - study directory to roll up, defaults to result_dir specified in the profile.</li>
+<li>template - A spreadsheet to be used as a template.  Defaults to the HOBL spreadsheet in the docs directory.  This is the spreadsheet that should be used for any valid HOBL study.</li>
+<li>goals - Path to a .csv file that contains the targets for each metric/scenario in the templates Scorecard sheet.</li>
+<li>name - An optional name for the resulting spreadsheet.  Default is the study name (derived from the parent directory) followed by "_study_report.xlsx".</li>
+<li>battery_capacity - Typical battery capacity in Wh.</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="log-file">Log file</h2>
+<ul>
+<li>A hobl.log file is created and written to during the test execution in the scenario run folder.  Lines are categorized as INFO, DEBUG, and ERROR.  INFO relays what the scenario is doing at a high level.  DEBUG is for seeing the details of what is actually happening.  And ERROR highlights what went wrong.</li>
+</ul>
+<h2 id="callbacks">Callbacks</h2>
+<ul>
+<li>Callback parameters are provided for interfacing with external equipment, such as DAQs and relays.</li>
+<li>For each scenario there are 3 callbacks:<ol>
+<li>callback_test_begin</li>
+<li>callback_test_end</li>
+<li>callback_data_ready</li>
+<li>callback_test_fail</li>
+</ol>
+</li>
+<li>For each of these, a shell command can be specified to be executed.  Typically this would be another script that would trigger DAQ recording, for example.</li>
+<li>The cs_floor and cs_active scenarios also have callback parameters for triggering the button of the device.  Typically this is done via a script that triggers a relay or other IO to activate the power button of the device.</li>
+<li>The charge_on and charge_off scenarios, as well as the auto_recharge and auto_charge tools similarly have callbacks to enable and disable the charger.</li>
+</ul>
+<h2 id="config-check">Config Check</h2>
+<ul>
+<li>By default, each non-prep scenario run will run the "config_check" script to get system configuration information to add to the results report.</li>
+<li>Further, a pre-run and post-run small config_check is run before and after the test respectively.  This helps capture any changes in screen brightness, volume, radios, etc.</li>
+<li>This can be disabled by setting global:config_check to 0.</li>
+</ul>
+<h2 id="graphic-user-interface">Graphic User Interface</h2>
+<ul>
+<li>Documentation of the HOBLweb UI can be found here: <a href="HOBL_UI.html">HOBL UI</a></li>
+</ul>
+<h2 id="test-plans">Test Plans</h2>
+<ul>
+<li>A "test plan" is simply a sequence of runs that make up a study.</li>
+<li>The "New Job" page in the HOBL UI allows you to load existing test plans, amend them, or create new test plans by adding scenarios.</li>
+<li>Each line specified the scenario to run, with options to change the number of iteratios, change the tools, or override parameters.</li>
+<li>A pane to set up Study Variables allows more automated generation and organization of advanced studies.</li>
+<li>When submitting a job, the HOBL UI will automatically insert a "prep" scenario run for all the scenarios identified in the job, to make sure they've all been prepped before exeucting them.</li>
+</ul>
+<h2 id="simpleremote">SimpleRemote</h2>
+<ul>
+<li>SimpleRemote is a console application that runs in the background on the DUT to accept network commands (JSON RPC) for executing commands/programs and transferring files.</li>
+<li>Part of dut_setup is to install SimpleRemote and set it to execute automatically upon system boot.</li>
+<li>InputInject is a plugin to SimpleRemote that very efficiently handles injecting keystrokes and mouse clicks on the DUT, as well as taking screen shots for image-based automation.</li>
+</ul>
+<h2 id="windows-application-driver">Windows Application Driver</h2>
+<ul>
+<li>Windows Application Driver is similar to WebDriver, but controls Windows applications or desktop instead of web sites in a browser.</li>
+<li>It uses the same JSON Wire Protocol as webdriver, so the client-side code on the Host is essentially the same, just communicates through a different port.</li>
+<li>On the DUT (server) side, it translates Webdriver commands to Windows UI Automation protocol for controlling apps.</li>
+<li>Scenarios that need WinAppDriver will launch the server on the DUT at the beginning of the scenario and shut it down at the end.</li>
+<li>Use of WinAppDriver is being phased out in favor of image-based automation, using the Scenario Maker tool, as it is no longer being maintained.  Also, WinAppDriver has a power hit, so it's only suitable for prep scenarios.</li>
+</ul>
+<h2 id="scenario-maker">Scenario Maker</h2>
+<ul>
+<li>Scenario Maker is an application that facilitates the creation of new test scenarios (or editing existing oens).</li>
+<li>Run Scenario Maker by executing hobl\ScenarioMaker\ScenarioMaker.cmd.</li>
+<li>It starts with a remote connection to a DUT (specify IP address in Settings), then allows you to compose a sequence of actions for the scenario using the menu.</li>
+<li>Record mode records you interacting with the DUT as a user would, and generates the appropriate action sequence for the test quickly and easily.  Caution, though, as these won't be optimized for power consumption.  To minimize power consumption, only take new screen captures when what you want to capture wasn't in a previous capture, and only capture as much of the screen as necessary.  Smaller screen region captures are faster and use less power.</li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": ".", "features": ["search.highlight"], "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.b4d07000.min.js"></script>
+      
+    
+  </body>
+</html>

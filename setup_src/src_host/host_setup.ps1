@@ -1,3 +1,6 @@
+# Copyright (c) Microsoft. All rights reserved.
+# Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
 param(
     [string]$logFile = "c:\temp\host_setup.log",
     [switch]$framework,
@@ -5,7 +8,7 @@ param(
 )
 
 # HOBL UI and Dut Setup versions
-$hobl_ui_version = "0.92"
+$hobl_ui_version = "0.94"
 $dut_setup_version = "2.0"
 
 function log {
@@ -145,7 +148,7 @@ if ($ui) {
     # Backup existing appsettings.json and delete existing hoblweb folder
     if (test-path c:\hoblweb) {
         "-- Backing up HOBLweb appsettings.json" | log
-        copy c:\HOBLweb\appsettings.json c:\temp\appsettings.json 2>&1 | log
+        Copy-Item c:\HOBLweb\appsettings.json c:\temp\appsettings.json 2>&1 | log
         "-- Deleting existing HOBLweb" | log
         Stop-Process -Name hoblweb -Force -ErrorAction SilentlyContinue
         remove-item c:\hoblweb -recurse -force 2>&1 | log
@@ -153,7 +156,7 @@ if ($ui) {
 
     # Download hobl ui zip file
     "-- Downloading HOBLweb" | log
-    $uiUrl = "https://github.com/microsoft/HOBL/releases/download/dut_setup/dut_setup_$dut_setup_version.exe"
+    $uiUrl = "https://github.com/microsoft/HOBL/releases/download/hobl_ui/hobl_ui_$hobl_ui_version.exe"
     $uiZip = "c:\hoblweb.zip"
     Invoke-WebRequest -Uri $uiUrl -OutFile $uiZip 2>&1 | log
     checkCmd($?)
@@ -168,7 +171,7 @@ if ($ui) {
 
     "-- Installing dotnet hosting" | log
     # This will throw error if IIS not installed, so don't check
-    c:\hoblweb\dotnet-hosting-6.0.7-win.exe /install /quiet /norestart 2>&1 | log
+    c:\hoblweb\dotnet-hosting-10.0.5-win.exe /install /quiet /norestart 2>&1 | log
 
     "-- Installing local DB" | log
     msiexec /i c:\hoblweb\SqlLocalDB.msi /qb IACCEPTSQLLOCALDBLICENSETERMS=YES 2>&1 | log
@@ -181,10 +184,10 @@ if ($ui) {
     # Restore appsettings.json
     if (test-path c:\temp\appsettings.json) {
         "-- Restoring backed up appsettings.json" | log
-        copy c:\temp\appsettings.json c:\HOBLweb\appsettings.json 2>&1 | log
+        Copy-Item c:\temp\appsettings.json c:\HOBLweb\appsettings.json 2>&1 | log
     } else {
         "-- Copying default appsettings.json" | log
-        copy c:\HOBLweb\appsettings.default.json c:\HOBLweb\appsettings.json 2>&1 | log
+        Copy-Item c:\HOBLweb\appsettings.default.json c:\HOBLweb\appsettings.json 2>&1 | log
     }
 
     # Open firewall
@@ -195,7 +198,7 @@ if ($ui) {
 
     # Add desktop shortcut
     "-- Copying launch shortcut to desktop" | log
-    copy c:\HOBLweb\HOBLweb.lnk ~\Desktop\HOBLweb.lnk 2>&1 | log
+    Copy-Item c:\HOBLweb\HOBLweb.lnk ~\Desktop\HOBLweb.lnk 2>&1 | log
 
     # Launch HOBL UI
     "-- Launching HOBLweb" | log

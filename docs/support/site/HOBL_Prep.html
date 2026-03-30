@@ -12,7 +12,7 @@
         <link rel="prev" href="HOBL_Parameters.html">
       
       
-        <link rel="next" href="HOBL_Release_Notes.html">
+        <link rel="next" href="HOBL_ScenarioMaker.html">
       
       <link rel="icon" href="assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.1.15">
@@ -184,8 +184,8 @@
   
   
     <li class="md-nav__item">
-      <a href="HOBL.html" class="md-nav__link">
-        HOBL
+      <a href="HOBL_DesignPhilosophy.html" class="md-nav__link">
+        Design Philosophy
       </a>
     </li>
   
@@ -893,8 +893,8 @@
   
   
     <li class="md-nav__item">
-      <a href="HOBL_Release_Notes.html" class="md-nav__link">
-        HOBL 25 Release Notes
+      <a href="HOBL_ScenarioMaker.html" class="md-nav__link">
+        Scenario Maker
       </a>
     </li>
   
@@ -910,6 +910,21 @@
     <li class="md-nav__item">
       <a href="HOBL_Scenarios.html" class="md-nav__link">
         HOBL Scenarios
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HOBL_Setup.html" class="md-nav__link">
+        Setup
       </a>
     </li>
   
@@ -953,8 +968,8 @@
   
   
     <li class="md-nav__item">
-      <a href="HOBL_UI_Release_Notes.html" class="md-nav__link">
-        HOBL UI Release Notes
+      <a href="HOBL_Usage.html" class="md-nav__link">
+        Usage
       </a>
     </li>
   
@@ -1919,12 +1934,12 @@ $Style = 'Stretch'
 <pre><code>setx /m EDGE_FEATURE_OVERRIDES_SOURCE server_default
 </code></pre>
 <h4 id="install-administrative-templates-to-be-able-to-control-settings">Install administrative templates to be able to control settings</h4>
-<pre><code>self._upload(&quot;utilities\\MicrosoftEdgePolicyTemplates\\windows\\admx\\msedge.admx&quot;, &quot;c:\\Windows\\PolicyDefinitions&quot;)
-self._upload(&quot;utilities\\MicrosoftEdgePolicyTemplates\\windows\\admx\\msedgeupdate.admx&quot;, &quot;c:\\Windows\\PolicyDefinitions&quot;)
-self._upload(&quot;utilities\\MicrosoftEdgePolicyTemplates\\windows\\admx\\msedgewebview2.admx&quot;, &quot;c:\\Windows\\PolicyDefinitions&quot;)
-self._upload(&quot;utilities\\MicrosoftEdgePolicyTemplates\\windows\\admx\\en-US\\msedge.adml&quot;, &quot;c:\\Windows\\PolicyDefinitions\\en-US&quot;)
-self._upload(&quot;utilities\\MicrosoftEdgePolicyTemplates\\windows\\admx\\en-US\\msedgeupdate.adml&quot;, &quot;c:\\Windows\\PolicyDefinitions\\en-US&quot;)
-self._upload(&quot;utilities\\MicrosoftEdgePolicyTemplates\\windows\\admx\\en-US\\msedgewebview2.adml&quot;, &quot;c:\\Windows\\PolicyDefinitions\\en-US&quot;)
+<pre><code>self._upload(&quot;utilities\\open_source\\MicrosoftEdgePolicyTemplates\\windows\\admx\\msedge.admx&quot;, &quot;c:\\Windows\\PolicyDefinitions&quot;)
+self._upload(&quot;utilities\\open_source\\MicrosoftEdgePolicyTemplates\\windows\\admx\\msedgeupdate.admx&quot;, &quot;c:\\Windows\\PolicyDefinitions&quot;)
+self._upload(&quot;utilities\\open_source\\MicrosoftEdgePolicyTemplates\\windows\\admx\\msedgewebview2.admx&quot;, &quot;c:\\Windows\\PolicyDefinitions&quot;)
+self._upload(&quot;utilities\\open_source\\MicrosoftEdgePolicyTemplates\\windows\\admx\\en-US\\msedge.adml&quot;, &quot;c:\\Windows\\PolicyDefinitions\\en-US&quot;)
+self._upload(&quot;utilities\\open_source\\MicrosoftEdgePolicyTemplates\\windows\\admx\\en-US\\msedgeupdate.adml&quot;, &quot;c:\\Windows\\PolicyDefinitions\\en-US&quot;)
+self._upload(&quot;utilities\\open_source\\MicrosoftEdgePolicyTemplates\\windows\\admx\\en-US\\msedgewebview2.adml&quot;, &quot;c:\\Windows\\PolicyDefinitions\\en-US&quot;)
 </code></pre>
 <h4 id="change-edge-policies-to-allow-autoplay-prevent-recommendations-hide-first-run-experience-and-disable-updates">Change Edge policies to: allow autoplay, prevent recommendations, hide First Run Experience, and disable updates</h4>
 <pre><code>powershell.exe Set-PolicyFileEntry -Path &quot;$env:windir\\system32\\GroupPolicy\\Machine\\registry.pol&quot; -Key SOFTWARE\\Policies\\Microsoft\\Edge -ValueName AutoplayAllowed -Data 1 -Type DWord

@@ -57,6 +57,7 @@ sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keyc
 # Stop any curent instance of SimpleRemote
 echo "Stopping any current instance of SimpleRemote..."
 killall SimpleRemoteConsole 2>&1 >/dev/null
+sleep 1s
 
 # Install Launch Agent
 echo "Installing Launch Agent..."
@@ -68,7 +69,8 @@ chmod 700 ~/Library/LaunchAgents/simple_remote.plist
 # Start SimpleRemtote
 echo "Starting SimpleRemote..."
 launchctl enable gui/$(id -u)/SimpleRemote
-launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/simple_remote.plist 
+launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/simple_remote.plist
+sleep 1s
 launchctl kickstart gui/$(id -u)/SimpleRemote
 
 # Set dock size to 60 pixels
@@ -85,8 +87,9 @@ killall Dock
 
 # Install desktop images
 echo "Installing desktop images..."
-cp -R ./DesktopImages $BIN_DIR/DesktopImages
-osascript -e 'tell application "System Events" to tell every desktop to set picture to POSIX file "/Users/Shared/hobl_bin/DesktopImages/ColorChecker3000x2000.png"'
+rm -rf $BIN_DIR/DesktopImages
+cp -R ./DesktopImages $BIN_DIR
+osascript -e 'tell application "System Events" to tell every desktop to set picture to POSIX file "/Users/Shared/hobl_bin/DesktopImages/ColorChecker3000x2000_bar.png"'
 
 # Trigger the security & privacy notification for screen & audio recording and documents.
 HOST="localhost"
@@ -106,11 +109,11 @@ send_rpc() {
 # === PAYLOAD 1 ===
 PAYLOAD1='{"method": "PluginLoad","params":["InputInject", "InputInject.Application", "/Users/Shared/hobl_bin/InputInject/InputInject.dll"], "jsonrpc": "2.0", "id": "1"}'
 # === PAYLOAD 2 ===
-PAYLOAD2='{"method": "StartJobWithNotification", "params": [null, null, "bash", "-c \"ls ~/Documents\""], "jsonrpc": "2.0", "id": "1"}'
+PAYLOAD2='{"method": "StartJobWithNotification", "params": [null, null, "bash", "High", "-c \"ls ~/Documents\""], "jsonrpc": "2.0", "id": "1"}'
 # === PAYLOAD 3 ===
 PAYLOAD3='{"method": "PluginCallMethod", "params": ["InputInject", "MoveBy", 10, 10], "jsonrpc": "2.0", "id": "1"}'
 # === PAYLOAD 4 ===
-PAYLOAD4='{"method": "StartJobWithNotification", "params": [null, null, "bash", "-c \"ls ~/Downloads\""], "jsonrpc": "2.0", "id": "1"}'
+PAYLOAD4='{"method": "StartJobWithNotification", "params": [null, null, "bash", "High", "-c \"ls ~/Downloads\""], "jsonrpc": "2.0", "id": "1"}'
 
 
 send_rpc "$PAYLOAD1" "Plugin Load"

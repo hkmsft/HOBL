@@ -1,3 +1,6 @@
+# Copyright (c) Microsoft. All rights reserved.
+# Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
 """
 // Convert the Apple powermetric output to our power_data.csv for rollup into a study report
 """

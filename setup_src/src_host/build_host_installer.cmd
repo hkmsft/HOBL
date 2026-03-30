@@ -1,4 +1,7 @@
 @echo off
+ REM Copyright (c) Microsoft. All rights reserved.
+ REM Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
 SetLocal EnableDelayedExpansion
 
 REM Build host_installer.exe with InnoSetup

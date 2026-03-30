@@ -1,3 +1,6 @@
+# Copyright (c) Microsoft. All rights reserved.
+# Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
 """
 Opens Python code editor widget.
 """
@@ -24,8 +27,7 @@ class CodeEditorWindow(QCodeEditor):
         else:
             # Create new file
             file_name = os.path.basename(file_path)
-            self.setPlainText(f"import logging\n\ndef run(scenario):\n    logging.debug('Executing code block: {file_name}')")
-
+            self.setPlainText(f"# Copyright (c) Microsoft. All rights reserved.\n# Licensed under the MIT license. See LICENSE file in the project root for full license information.\n\nimport logging\n\ndef run(scenario):\n    logging.debug('Executing code block: {file_name}')")
 
     def closeEvent(self, event):
         # self.settings.set('size', self.size())

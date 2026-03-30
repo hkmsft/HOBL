@@ -1,3 +1,6 @@
+# Copyright (c) Microsoft. All rights reserved.
+# Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
 # Battery Logger tool
 #
 # Produces a csv trace file of battery stats vs. time

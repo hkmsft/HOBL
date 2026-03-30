@@ -14,27 +14,110 @@ log() {
     echo "$1" >> "$LOG_FILE"
 }
 
-# Create assets folder if it does not exist and copy all files from the current directory to it
-if [ ! -d $BIN_DIR/mac_pytorch_inf_resources ]; then
-    log "-- Copying resources to $BIN_DIR/mac_pytorch_inf_resources"
-    mkdir -p "$BIN_DIR/mac_pytorch_inf_resources"
-    cp -r "$(dirname "$0")"/* "$BIN_DIR/mac_pytorch_inf_resources/"
-fi
+check_status() {
+    if [ $? -ne 0 ]; then
+        log " ERROR - $1 failed"
+        exit 1
+    fi
+    log "✓ $1 successful"
+}
+
+check_command() {
+    if command -v "$1" >/dev/null 2>&1; then
+        log "✓ $1 is available"
+        return 0
+    else
+        log " ERROR - $1 is not available"
+        return 1
+    fi
+}
+
+# Always copy resources to pick up script/config changes
+log "-- Copying resources to $BIN_DIR/mac_pytorch_inf_resources"
+mkdir -p "$BIN_DIR/mac_pytorch_inf_resources"
+cp -r "$(dirname "$0")"/* "$BIN_DIR/mac_pytorch_inf_resources/"
 
 echo "-- mac_pytorch_inf_prep.sh started $(date)" > "$LOG_FILE"
 log "-- pytorch_inf prep started"
 
-log "-- Creating $BIN_DIR/micromamba"
-mkdir -p $BIN_DIR/micromamba
-cd $BIN_DIR/micromamba
+# Check if BIN_DIR exists
+if [ ! -d "$BIN_DIR" ]; then
+    log " ERROR - $BIN_DIR does not exist"
+    exit 1
+fi
 
-log "-- Downloading micromamba"
-curl -Ls https://micro.mamba.pm/api/micromamba/osx-arm64/latest | tar -xvj bin/micromamba
+# --- Install Homebrew ---
+log "-- Installing Brew"
+if [ -x /opt/homebrew/bin/brew ]; then
+    log "✓ Brew already installed at /opt/homebrew/bin/brew"
+else
+    export NONINTERACTIVE=1
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    check_status "Brew installation"
+fi
 
-log "-- Initialize shell"
-export MAMBA_ROOT_PREFIX=$BIN_DIR/micromamba # optional, defaults to ~/micromamba
-eval "$(./bin/micromamba shell hook -s posix)"
+if [ ! -x /opt/homebrew/bin/brew ]; then
+    log " ERROR - Homebrew not found at /opt/homebrew/bin/brew"
+    exit 1
+fi
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
+log "-- Installing readline and xz"
+brew install readline xz
+check_status "readline and xz installation"
+
+# --- Install pyenv ---
+log "-- Installing pyenv"
+brew install pyenv pyenv-virtualenv
+check_status "pyenv installation"
+
+log "-- Modifying profile"
+
+# Add brew shellenv if not already there
+if ! grep -q 'eval "$(/opt/homebrew/bin/brew shellenv)"' ~/.zprofile 2>/dev/null; then
+    echo '# brew variables and PATH' >> ~/.zprofile
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+    log "✓ Added brew to profile"
+else
+    log "✓ brew already in profile"
+fi
+
+# Add pyenv init if not already there
+if ! grep -q "pyenv init" ~/.zprofile 2>/dev/null; then
+    echo '# for pyenv and pyenv-virtualenv' >> ~/.zprofile
+    echo 'eval "$(pyenv init -)"' >> ~/.zprofile
+    echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.zprofile
+    log "✓ Added pyenv to profile"
+else
+    log "✓ pyenv already in profile"
+fi
+
+# Source profile to load environment
+source ~/.zprofile
+
+check_command "pyenv" || exit 1
+
+# --- Install Python ---
+log "-- Installing Python 3.12.10"
+pyenv install 3.12.10 -f
+check_status "Python 3.12.10 installation"
+
+log "-- Setting Python version"
+pyenv global 3.12.10
+check_status "Setting Python global version"
+
+# Verify Python version
+PYTHON_VERSION=$(python --version 2>&1 | awk '{print $2}')
+if [ "$PYTHON_VERSION" != "3.12.10" ]; then
+    log " ERROR - Python version is $PYTHON_VERSION, expected 3.12.10"
+    pyenv versions
+    exit 1
+fi
+log "✓ Python version confirmed: $PYTHON_VERSION"
+log "Python path: $(which python)"
+log "Pip path: $(python -m pip --version)"
+
+# --- CD to resources ---
 log "-- CD to resources"
 cd $BIN_DIR/mac_pytorch_inf_resources
 if [ $? -ne 0 ]; then
@@ -42,23 +125,20 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-if [ ! -f "environment_osx.yaml" ]; then
-    log " ERROR - environment_osx.yaml file not found"
+if [ ! -f "requirements_osx.txt" ]; then
+    log " ERROR - requirements_osx.txt file not found"
     exit 1
 fi
 
-log "-- Create environment"
-micromamba create --file environment_osx.yaml -y
-if [ $? -ne 0 ]; then
-    log " ERROR - Failed to create micromamba environment from environment_osx.yaml"
-    exit 1
-fi
+# --- Install Python packages ---
+log "-- Installing Python packages from requirements_osx.txt"
+python -m pip install -r requirements_osx.txt
+check_status "Python package installation"
 
-log "-- Activate environment"
-micromamba activate BUILD_2025_env
-
+# --- Download model ---
 log "-- Setup LLM Phi-4-mini inferencing"
 python inference.py --setup
+check_status "Model setup"
 
 log "-- pytorch_inf prep completed"
 exit 0

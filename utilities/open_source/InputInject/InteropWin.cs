@@ -1,4 +1,7 @@
-﻿#if WINDOWS
+﻿// Copyright (c) Microsoft. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
+#if WINDOWS
 using System;
 using System.Windows.Forms;
 using System.Collections;

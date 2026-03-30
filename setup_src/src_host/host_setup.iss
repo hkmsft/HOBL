@@ -21,7 +21,9 @@ Compression=lzma
 SolidCompression=yes
 SetupLogging=yes
 WizardSmallImageFile="H.bmp"
-LicenseFile=eula.txt
+LicenseFile=eula.rtf
+WizardResizable=yes
+WizardSizePercent=120
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"

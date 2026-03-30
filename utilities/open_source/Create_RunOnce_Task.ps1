@@ -1,3 +1,6 @@
+# Copyright (c) Microsoft. All rights reserved.
+# Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
 # $test_plan = "c:\hoblexe\testplans\toast_automation.ps1 -PhaseLocalPlayback -Scenario LVP -Loops 5"
 write-host "Argument Count: $($Args.Length)"
 write-host "Argument 0: " + $Args[0]

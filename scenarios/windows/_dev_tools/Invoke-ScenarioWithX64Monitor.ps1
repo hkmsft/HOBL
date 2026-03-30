@@ -1,3 +1,6 @@
+# Copyright (c) Microsoft. All rights reserved.
+# Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
 <#
 .SYNOPSIS
     Wrapper script that runs a developer scenario's run.ps1 while monitoring

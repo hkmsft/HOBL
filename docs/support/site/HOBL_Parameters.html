@@ -9,7 +9,7 @@
       
       
       
-        <link rel="prev" href="HOBL.html">
+        <link rel="prev" href="HOBL_DesignPhilosophy.html">
       
       
         <link rel="next" href="HOBL_Prep.html">
@@ -184,8 +184,8 @@
   
   
     <li class="md-nav__item">
-      <a href="HOBL.html" class="md-nav__link">
-        HOBL
+      <a href="HOBL_DesignPhilosophy.html" class="md-nav__link">
+        Design Philosophy
       </a>
     </li>
   
@@ -326,8 +326,8 @@
   
   
     <li class="md-nav__item">
-      <a href="HOBL_Release_Notes.html" class="md-nav__link">
-        HOBL 25 Release Notes
+      <a href="HOBL_ScenarioMaker.html" class="md-nav__link">
+        Scenario Maker
       </a>
     </li>
   
@@ -343,6 +343,21 @@
     <li class="md-nav__item">
       <a href="HOBL_Scenarios.html" class="md-nav__link">
         HOBL Scenarios
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HOBL_Setup.html" class="md-nav__link">
+        Setup
       </a>
     </li>
   
@@ -386,8 +401,8 @@
   
   
     <li class="md-nav__item">
-      <a href="HOBL_UI_Release_Notes.html" class="md-nav__link">
-        HOBL UI Release Notes
+      <a href="HOBL_Usage.html" class="md-nav__link">
+        Usage
       </a>
     </li>
   
@@ -514,8 +529,8 @@ a path variable, as well as the following special ones: [OS_BUILD], [LKG].  Exam
 dut_wifi_name: </p>
 <p><code>dut_wifi_password</code> - Wireless LAN password for above SSID, used to auto connect to Wi-Fi.</p>
 <p><code>study_type</code> - The type of the study you are performing.  For weekly HOBL runs we typically put "HOBL".  This is used to organize study results and reports.</p>
-<p><code>tools</code> - List any tools that should be run with each <strong>power</strong> scenario, in a space-separated list.  Available tools are in the "tools" directory.  This is the typical set: "auto_recharge video_record display_brightness screen_check run_report".  More information on tools can be found in the "Tools" section of the <a href="HOBL.html">HOBL</a> document.</p>
-<p><code>prep_tools</code> - List any tools that should be run with each <strong>prep</strong> scenario, in a space-separated list.  This is the typical set: "screen_record screen_check".</p>
+<p><code>tools</code> - List any tools that should be run with each <strong>power</strong> scenario, in a space-separated list.  Available tools are in the "tools" directory.  This is the typical set: "auto_recharge video_record display_brightness run_report".  More information on tools can be found in the "Tools" section of the <a href="HOBL_Usage.html">HOBL Usage</a> document.</p>
+<p><code>prep_tools</code> - List any tools that should be run with each <strong>prep</strong> scenario, in a space-separated list.  This is the typical set: "screen_record".</p>
 <p><code>post_run_delay</code></p>
 <p><code>trace</code></p>
 <p><code>charge_on_call</code> - Specify the shell command to execute to engage charging of the device.  This is used by the "charge_on" and "recharge" scenarios, as well as the "auto_recharge" and "auto_charge" tools.  Requires some sort of automated charging mechanism such as an iBoot or IP Power Strip.</p>

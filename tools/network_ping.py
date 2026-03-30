@@ -1,3 +1,6 @@
+# Copyright (c) Microsoft. All rights reserved.
+# Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
 # Pings dut every 60 seconds
 # if dut does not respond to ping, charge is enabled.
 # When ping is detected, charge is disabled.
