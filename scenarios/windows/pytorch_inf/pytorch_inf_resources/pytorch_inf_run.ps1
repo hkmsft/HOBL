@@ -1,3 +1,6 @@
+# Copyright (c) Microsoft. All rights reserved.
+# Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
 param(
     [string]$logFile = "",
     [string]$startTime = (Get-Date).ToString("o")
@@ -81,19 +84,152 @@ Set-Content -Path $logFile -encoding utf8 "-- pytorch_inf run started"
 "-- pytorch_inf run started" | log
 Write-RunPhaseMarker "phase.run_prep.start"
 
-"-- Initialize shell" | log
-$Env:MAMBA_ROOT_PREFIX="$scriptDrive\hobl_bin\micromamba"
-Set-Location "$scriptDrive\hobl_bin\micromamba"
-checkCmd($?)
-.\micromamba.exe shell hook -s powershell | Out-String | Invoke-Expression
-checkCmd($?)
+# Determine processor architecture for pyenv Python version
+$osInfo = Get-CimInstance Win32_OperatingSystem
+$arch = $osInfo.OSArchitecture
+$processorArch = $env:PROCESSOR_ARCHITECTURE
+
+if ($arch -eq "64-bit" -and $processorArch -eq "AMD64") {
+    $pythonVersion = "3.12.10"
+} elseif ($arch -match "ARM" -or $processorArch -match "ARM") {
+    $pythonVersion = "3.12.10-arm"
+} else {
+    " ERROR - Unsupported architecture: $arch (Processor: $processorArch)" | log
+    Exit 1
+}
+
+# --- Optimize PATH: pyenv shims before WindowsApps ---
+$pyenvPaths = @(
+    "$env:USERPROFILE\.pyenv\pyenv-win\shims",
+    "$env:USERPROFILE\.pyenv\pyenv-win\bin"
+)
+
+function Set-OptimizedPathOrder {
+    function Normalize-PathEntry {
+        param([string]$Entry)
+        if (-not $Entry) { return $null }
+        $value = $Entry.Trim().Trim('"')
+        if (-not $value) { return $null }
+        if ($value.Length -gt 3 -and $value.EndsWith("\")) {
+            $value = $value.TrimEnd("\\")
+        }
+        return $value
+    }
+
+    function Get-PathEntries {
+        param([string]$PathValue)
+        $entries = New-Object System.Collections.Generic.List[string]
+        if (-not $PathValue) { return $entries }
+        foreach ($segment in ($PathValue -split ';')) {
+            $normalized = Normalize-PathEntry -Entry $segment
+            if ($normalized) { $entries.Add($normalized) }
+        }
+        return $entries
+    }
+
+    function Add-UniquePathEntry {
+        param(
+            [System.Collections.Generic.List[string]]$List,
+            [hashtable]$Seen,
+            [string]$Entry
+        )
+        $normalized = Normalize-PathEntry -Entry $Entry
+        if (-not $normalized) { return }
+        $key = $normalized.ToLowerInvariant()
+        if (-not $Seen.ContainsKey($key)) {
+            $List.Add($normalized)
+            $Seen[$key] = $true
+        }
+    }
+
+    $isAdmin = ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")
+
+    $currentUserPath = [System.Environment]::GetEnvironmentVariable('PATH', 'User')
+
+    $windowsAppsCanonical = Normalize-PathEntry -Entry "$env:LOCALAPPDATA\Microsoft\WindowsApps"
+    $windowsAppsCanonicalKey = $windowsAppsCanonical.ToLowerInvariant()
+    $windowsAppsEnvKey = "%localappdata%\microsoft\windowsapps"
+
+    $pyenvPathKeys = @{}
+    foreach ($pyenvPath in $pyenvPaths) {
+        $normalizedPyenv = Normalize-PathEntry -Entry $pyenvPath
+        if ($normalizedPyenv) { $pyenvPathKeys[$normalizedPyenv.ToLowerInvariant()] = $true }
+    }
+
+    $userEntries = Get-PathEntries -PathValue $currentUserPath
+    $cleanUserEntries = New-Object System.Collections.Generic.List[string]
+    $cleanUserSeen = @{}
+    $hadWindowsAppsInUserPath = $false
+
+    foreach ($entry in $userEntries) {
+        $entryKey = $entry.ToLowerInvariant()
+        if ($entryKey -eq $windowsAppsCanonicalKey -or $entryKey -eq $windowsAppsEnvKey) {
+            $hadWindowsAppsInUserPath = $true
+            continue
+        }
+        if ($pyenvPathKeys.ContainsKey($entryKey)) { continue }
+        Add-UniquePathEntry -List $cleanUserEntries -Seen $cleanUserSeen -Entry $entry
+    }
+
+    $newUserEntries = New-Object System.Collections.Generic.List[string]
+    $newUserSeen = @{}
+    foreach ($pyenvPath in $pyenvPaths) {
+        Add-UniquePathEntry -List $newUserEntries -Seen $newUserSeen -Entry $pyenvPath
+    }
+    foreach ($entry in $cleanUserEntries) {
+        Add-UniquePathEntry -List $newUserEntries -Seen $newUserSeen -Entry $entry
+    }
+    if ($hadWindowsAppsInUserPath -or (Test-Path $windowsAppsCanonical)) {
+        Add-UniquePathEntry -List $newUserEntries -Seen $newUserSeen -Entry $windowsAppsCanonical
+    }
+
+    $newUserPath = ($newUserEntries -join ';')
+
+    try {
+        [System.Environment]::SetEnvironmentVariable('PATH', $newUserPath, 'User')
+        if ($isAdmin) {
+            $machinePath = [System.Environment]::GetEnvironmentVariable('PATH', 'Machine')
+            $machineEntries = Get-PathEntries -PathValue $machinePath
+            $cleanMachineEntries = New-Object System.Collections.Generic.List[string]
+            $cleanMachineSeen = @{}
+            foreach ($entry in $machineEntries) {
+                if ($pyenvPathKeys.ContainsKey($entry.ToLowerInvariant())) { continue }
+                Add-UniquePathEntry -List $cleanMachineEntries -Seen $cleanMachineSeen -Entry $entry
+            }
+            $newMachineEntries = New-Object System.Collections.Generic.List[string]
+            $newMachineSeen = @{}
+            foreach ($pyenvPath in $pyenvPaths) {
+                Add-UniquePathEntry -List $newMachineEntries -Seen $newMachineSeen -Entry $pyenvPath
+            }
+            foreach ($entry in $cleanMachineEntries) {
+                Add-UniquePathEntry -List $newMachineEntries -Seen $newMachineSeen -Entry $entry
+            }
+            $newMachinePath = ($newMachineEntries -join ';')
+            [System.Environment]::SetEnvironmentVariable('PATH', $newMachinePath, 'Machine')
+        }
+        $machinePath = [System.Environment]::GetEnvironmentVariable('PATH', 'Machine')
+        $env:PATH = $machinePath + ";" + $newUserPath
+    } catch {
+        " ERROR - Failed to update PATH: $($_.Exception.Message)" | log
+        Exit 1
+    }
+}
+
+Set-OptimizedPathOrder
+
+"Setting Python global version to $pythonVersion..." | log
+pyenv global $pythonVersion
+if ($LASTEXITCODE -ne 0) {
+    " ERROR - Failed to set Python version $pythonVersion. Make sure it's installed via pyenv." | log
+    "Run the pytorch_inf prep script first to install the correct Python version." | log
+    Exit 1
+}
+
+"Location of python:" | log
+pyenv which python
 
 "-- CD to resources" | log
 Set-Location "$scriptDrive\hobl_bin\pytorch_inf_resources"
-checkCmd($?)
-
-"-- Activate environment" | log
-micromamba activate BUILD_2025_env
 checkCmd($?)
 
 "-- Extract log directory from logFile path" | log

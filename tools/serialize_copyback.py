@@ -1,3 +1,6 @@
+# Copyright (c) Microsoft. All rights reserved.
+# Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
 # Uses renaming to lock the folder in "\\powerdata\powerarchieve"
 # The folder is also specific, named "copyback_lock"
 # 

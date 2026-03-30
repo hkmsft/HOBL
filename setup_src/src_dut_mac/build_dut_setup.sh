@@ -14,7 +14,7 @@ cp ../ScreenServer/Output/ScreenServer_osx-arm64/ScreenServer_osx-arm64.zip asse
 cp ../brightness/brightness assets/
 
 # Copy desktop images to assets folder
-cp ../DesktopImages assets/
+cp -r ../DesktopImages assets/
 
 # Copy the install script to assets folder
 cp dut_setup_install.sh assets/

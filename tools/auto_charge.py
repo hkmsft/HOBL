@@ -1,3 +1,6 @@
+# Copyright (c) Microsoft. All rights reserved.
+# Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
 # Disengage charger at beginning of scenario and re-engage when complete
 
 # 4 specified functions

@@ -1,3 +1,6 @@
+# Copyright (c) Microsoft. All rights reserved.
+# Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
 # Take screenshots during scenario, where pause = the number of seconds between screenshots.
 # Set pause = 0 (default) to only take screenshots at the beginning and end of the scenario.
 #

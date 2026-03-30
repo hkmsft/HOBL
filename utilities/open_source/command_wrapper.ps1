@@ -1,3 +1,6 @@
+# Copyright (c) Microsoft. All rights reserved.
+# Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
 $timeout = 3600  # 1 hr timeout in case test is terminated or killed and can't gracefully shut down.
 $psi = New-Object System.Diagnostics.ProcessStartInfo
 $psi.FileName = $Args[0]

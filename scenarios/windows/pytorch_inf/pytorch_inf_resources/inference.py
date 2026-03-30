@@ -1,6 +1,9 @@
+# Copyright (c) Microsoft. All rights reserved.
+# Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
 import argparse
 import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers import AutoModelForCausalLM, AutoTokenizer, LogitsProcessor
 import os
 import time
 from transformers.generation.streamers import TextStreamer
@@ -236,7 +239,14 @@ def run_inference(model, tokenizer, prompt, device, log_dir=None):
             super().end()
 
     streamer = StatsStreamer(tokenizer, skip_prompt=True, skip_special_tokens=True)
-    
+
+    # Sanitize NaN/Inf logits before sampling — Phi-4-mini can produce non-finite
+    # logits on Arm64 CPU due to floating-point precision differences, which causes
+    # torch.multinomial to fail with "probability tensor contains inf, nan".
+    class SanitizeLogitsProcessor(LogitsProcessor):
+        def __call__(self, input_ids, scores):
+            return torch.where(torch.isfinite(scores), scores, torch.full_like(scores, torch.finfo(scores.dtype).min))
+
     # Record generation start time for use with Time to First Token (TTFT)
     generation_start = time.time()
     
@@ -251,7 +261,8 @@ def run_inference(model, tokenizer, prompt, device, log_dir=None):
             pad_token_id=tokenizer.eos_token_id,
             eos_token_id=tokenizer.eos_token_id,
             use_cache=True,
-            streamer=streamer
+            streamer=streamer,
+            logits_processor=[SanitizeLogitsProcessor()]
         )
     print()  # Newline after streaming
 

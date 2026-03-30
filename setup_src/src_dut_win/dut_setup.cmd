@@ -1,5 +1,9 @@
 set dut_setup_version=2.0
 
+REM Copyright (c) Microsoft. All rights reserved.
+REM Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
+
 echo off
 setlocal EnableDelayedExpansion
 cls

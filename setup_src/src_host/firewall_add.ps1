@@ -1,3 +1,6 @@
+# Copyright (c) Microsoft. All rights reserved.
+# Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
 $grandParent = (Get-Item $PSScriptRoot).Parent.Parent.FullName
 $rule = "python_embed ($grandParent)"
 $program = Join-Path $grandParent "downloads\python_embed\python.exe"

@@ -1,3 +1,6 @@
+# Copyright (c) Microsoft. All rights reserved.
+# Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
 '''
 This is a socket client for sending messages to a higher level framework.
 Set the hobl callback parameters to call this script followed by the command you want to send.

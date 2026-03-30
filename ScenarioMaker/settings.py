@@ -1,7 +1,9 @@
+# Copyright (c) Microsoft. All rights reserved.
+# Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
 """
 Creates the Settings dialog.
 """
-
 
 from PyQt6 import QtWidgets, uic
 from PyQt6.QtCore import QSettings

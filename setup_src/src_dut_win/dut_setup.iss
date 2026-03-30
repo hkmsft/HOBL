@@ -23,6 +23,9 @@ WizardSmallImageFile="H.bmp"
 PrivilegesRequired=admin
 ArchitecturesAllowed=x64 ARM64
 ArchitecturesInstallIn64BitMode=x64 ARM64
+LicenseFile=UserWarning.txt
+WizardResizable=yes
+WizardSizePercent=120
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
@@ -41,7 +44,7 @@ Source: "wifi_template.xml"; DestDir: "{tmp}"; Flags: ignoreversion
 Source: "simple_remote_setup.ps1"; DestDir: "{tmp}\dut_setup"; Flags: ignoreversion 
 Source: "schedule_connect_wifi.ps1"; DestDir: "{tmp}\dut_setup"; Flags: ignoreversion 
 Source: "rename.ps1"; DestDir: "{tmp}\dut_setup"; Flags: ignoreversion recursesubdirs 
-Source: "..\..\utilities\third_party\tee.exe"; DestDir: "{tmp}\dut_setup"; Flags: ignoreversion
+Source: "..\..\utilities\third_party\tee\tee.exe"; DestDir: "{tmp}\dut_setup"; Flags: ignoreversion
 Source: "SimpleRemoteServer_win-x64.zip"; DestDir: "{tmp}\dut_setup\SimpleRemote"; Flags: ignoreversion
 Source: "SimpleRemoteServer_win-arm64.zip"; DestDir: "{tmp}\dut_setup\SimpleRemote"; Flags: ignoreversion
 Source: "..\..\utilities\third_party\PolicyFileEditor\*"; DestDir: "{tmp}\dut_setup\PolicyFileEditor"; Flags: ignoreversion recursesubdirs createallsubdirs
@@ -57,9 +60,9 @@ Source: "C:\web_replay\v1.5.0\set_args.ps1"; DestDir: "{tmp}\dut_setup\web_repla
 Source: "C:\web_replay\v1.5.0\remove_args.ps1"; DestDir: "{tmp}\dut_setup\web_replay"; Flags: ignoreversion
 Source: "C:\web_replay\v1.5.0\install_certs.ps1"; DestDir: "{tmp}\dut_setup\web_replay"; Flags: ignoreversion
 Source: "C:\web_replay\v1.5.0\certs\*"; DestDir: "{tmp}\dut_setup\web_replay\certs"; Flags: ignoreversion
-Source: "..\..\utilities\proprietary\remote\x64\remote.exe"; DestDir: "{tmp}\dut_setup\remote\x64"; Flags: ignoreversion
-Source: "..\..\utilities\proprietary\remote\arm64\remote.exe"; DestDir: "{tmp}\dut_setup\remote\arm64"; Flags: ignoreversion
-Source: "..\..\utilities\proprietary\remote\wallpaper.png"; DestDir: "{tmp}\dut_setup\remote"; Flags: ignoreversion
+Source: "..\..\utilities\third_party\remote\x64\remote.exe"; DestDir: "{tmp}\dut_setup\remote\x64"; Flags: ignoreversion
+Source: "..\..\utilities\third_party\remote\arm64\remote.exe"; DestDir: "{tmp}\dut_setup\remote\arm64"; Flags: ignoreversion
+Source: "..\..\utilities\third_party\remote\wallpaper.png"; DestDir: "{tmp}\dut_setup\remote"; Flags: ignoreversion
 
 [Run]
 Filename: "{tmp}\dut_setup\vc_redist.x64.exe"; Parameters: "/install /passive /norestart"; Flags: shellexec waituntilterminated

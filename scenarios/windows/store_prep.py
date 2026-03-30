@@ -1,31 +1,5 @@
-"""
-//--------------------------------------------------------------
-//
-// HOBL
-// Copyright(c) Microsoft Corporation
-// All rights reserved.
-//
-// MIT License
-//
-// Permission is hereby granted, free of charge, to any person obtaining
-// a copy of this software and associated documentation files(the ""Software""),
-// to deal in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and / or sell copies
-// of the Software, and to permit persons to whom the Software is furnished to do so,
-// subject to the following conditions :
-//
-// The above copyright notice and this permission notice shall be included
-// in all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED *AS IS*, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
-// FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS
-// OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-// WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF
-// OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-//
-//--------------------------------------------------------------
-"""
+# Copyright (c) Microsoft. All rights reserved.
+# Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 ##
 # Update store apps and then disable store updates on RS5 and 19h1 only
@@ -99,7 +73,7 @@ class StorePrep(core.app_scenario.Scenario):
         logging.info("Uninstalling Microsoft Whiteboard app if installed")
         self._call(["powershell.exe", "Get-AppxPackage *Microsoft.Whiteboard* | Remove-AppxPackage"], expected_exit_code="")
 
-        logging.info("Setting Reg Kye to Disable Auto Updates")
+        logging.info("Setting reg key to disable Auto Updates")
         self._call(['cmd.exe', r'/C reg.exe Add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsStore" /v AutoDownload /t REG_DWORD /d 2 /f'], expected_exit_code="")
 
         start_time = time.time()
@@ -109,7 +83,7 @@ class StorePrep(core.app_scenario.Scenario):
         last_round = False
         timeout = 60
         
-        # Waiting untill all the updates are installed
+        # Waiting until all the updates are installed
         # We click "Get updates" at each loop and wait for timeout time
         # We click "Resume all" for any app in paused state
 
@@ -121,7 +95,7 @@ class StorePrep(core.app_scenario.Scenario):
                 self.new_store = True
             except:
                 try:
-                    # Find by Automtion ID (accessibility_id) instead of name because sometimes name has additional words, like "Updates available".
+                    # Find by Automation ID (accessibility_id) instead of name because sometimes name has additional words, like "Updates available".
                     # self.driver.find_element_by_accessibility_id("MyLibraryButton").click()
                     # Moved to Downloads
                     self.driver.find_element_by_accessibility_id("DownloadsAndUpdatesButton").click()

@@ -1,7 +1,10 @@
-﻿param(
+﻿# Copyright (c) Microsoft. All rights reserved.
+# Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
+param(
     [string]$wallpaper = "ColorChecker3000x2000.png",
     [string]$Brightness = "65",
-    [string]$telemetry_enabled = "0",
+    [string]$telemetry_enabled = "0"
 )
 
 Push-Location -Path (Split-Path $MyInvocation.MyCommand.Path -Parent)
@@ -86,8 +89,8 @@ powercfg -SETACTIVE scheme_balanced
 
 # Opt out diagtrack and UTC for non-critical events 
 if ($telemetry_enabled -eq "0"){
-    Copy .\telemetry.ASM-WindowsDefault.json $env:ProgramData\Microsoft\diagnosis\sideload -Force
-    Copy .\utc.app.json $env:ProgramData\Microsoft\diagnosis\sideload -Force
+    Copy-Item .\telemetry.ASM-WindowsDefault.json $env:ProgramData\Microsoft\diagnosis\sideload -Force
+    Copy-Item .\utc.app.json $env:ProgramData\Microsoft\diagnosis\sideload -Force
 }
 
 Pop-Location

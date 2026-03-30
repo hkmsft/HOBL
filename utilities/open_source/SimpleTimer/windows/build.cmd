@@ -1,7 +1,7 @@
-REM Copyright (c) Microsoft. All rights reserved.
-REM Licensed under the MIT license. See LICENSE file in the project root for full license information.
-
 @echo off
+:: Copyright (c) Microsoft. All rights reserved.
+:: Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
 setlocal
 
 set CONFIGURATION=Release

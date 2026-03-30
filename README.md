@@ -1,12 +1,26 @@
 # HOBL
 
-"HOBL" (Hours Of Battery Life) is a test framework and set of test scenarios for the purpose of measuring power, perfromance, and thermal characteristics of Windows and macOS devices.
+## Introduction
 
-[Introduction](docs/support/docs/HOBL.md)
+* "HOBL" (Hours Of Battery Life) is a test framework and set of test scenarios for the purpose of measuring power, perfromance, and thermal characteristics of Windows and (to a lesser extent) macOS devices.
+* Power is expected to be primarily measured with external DAQ equipement, but internal power monitor chips and battery rundown measurements are also supported.
+* The HOBL test framework runs on a "Host" Windows 10/11 PC.  Test scenarios execute on the Host and send commands to the DUT (Device Under Test) over a local network to replicate user interactions.
+* To ensure standardized and representative measurements, testers must not kill or disable processes or services.  "Prep scenarios" will be automatically executed to put the system in a controlled state suitable for testing.
+* **Make sure your DUT is a computer that is ONLY logged in with a dedicated test account.**  Files, emails, etc, may be deleted.  A work or personal computer may be used as a "Host", but not a "DUT".
+* For questions or issues, send mail to [HOBLsupport@microsoft.com](mailto:HOBLsupport@microsoft.com).  Attach the hobl.log file and relevant screen shots for any problematic test run.
+
+### Further reading:
+* [Design Philosophy](docs/support/docs/HOBL_DesignPhilosophy.md)
+* [Setup](docs/support/docs/HOBL_Setup.md)
+* [Usage](docs/support/docs/HOBL_Usage.md)
+* [System Preparation](docs/support/docs/HOBL_Prep.md)
+* [Scenarios](docs/support/docs/HOBL_Scenarios.md)
+* [Tools](docs/support/docs/HOBL_Tools.md)
+* [Creating Scenarios](docs/support/docs/HOBL_ScenarioMaker.md)
 
 # Security
 
-HOBL uses SimpleRemote for communicating with devices, which allows users to run programs and access files on the computer where it is run, with no authentication whatsoever. It was desiged to be run on test machines on closed, lab networks.
+HOBL uses [SimpleRemote](https://github.com/Microsoft/SimpleRemote) for communicating with devices, which allows users to run programs and access files on the computer where it is run, with no authentication whatsoever. It was desiged to be run on test machines on closed, lab networks.
 
 # License
 

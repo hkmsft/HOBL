@@ -93,16 +93,6 @@
                         "delay": "0.0",
                         "description": "",
                         "enabled": true,
-                        "id": "1AMAYPR",
-                        "name": "[teams:verify_bots]",
-                        "type": "Set",
-                        "value": "0"
-                    },
-                    {
-                        "children": [],
-                        "delay": "0.0",
-                        "description": "",
-                        "enabled": true,
                         "id": "1ANKM6J",
                         "name": "[teams:collect_MSTeams_Logs]",
                         "type": "Set",

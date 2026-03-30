@@ -1,3 +1,6 @@
+# Copyright (c) Microsoft. All rights reserved.
+# Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
 # Media perf tool for post processing of Media ETL traces using Media eXperience Analyzer
 # ETL trace should have been collected using MediaEngine.wprp profile
 

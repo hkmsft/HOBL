@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 
+# Copyright (c) Microsoft. All rights reserved.
+# Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
 from builtins import str
 from builtins import *
 import os
@@ -7,10 +10,7 @@ import os.path
 import shutil
 import sys
 import win32wnet
-#import exceptions
 import builtins as exceptions
-
-import time
 
 def net_copy(host, source, dest_dir, username=None, password=None, move=False):
     """ Copies files or directories to a remote computer. """

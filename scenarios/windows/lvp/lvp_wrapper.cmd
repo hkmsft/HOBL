@@ -1,4 +1,7 @@
 @echo off
+:: Copyright (c) Microsoft. All rights reserved.
+:: Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
 cls
 echo Airplane Mode Enabled time (sec): %1
 echo Arg1: %1

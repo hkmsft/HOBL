@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+ <key>Label</key>
+ <string>SimpleRemote</string>
+ <key>RunAtLoad</key>
+ <true/>
+ <key>Program</key>
+ <string>/bin/zsh</string>
+ <key>ProgramArguments</key>
+ <array>
+   <string>/bin/zsh</string>
+   <string>/Users/Shared/hobl_bin/SimpleRemote/launch_simple_remote.sh</string>
+ </array>
+ <key>LaunchOnlyOnce</key>
+ <true/>
+ <key>ProcessType</key>
+ <string>Interactive</string>
+</dict>
+</plist>
